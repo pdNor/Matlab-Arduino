@@ -237,7 +237,8 @@ classdef arduino_com < handle
         end
         
         function [val]=digitalRead(a,pin)
-            % Reads and return the status of a pin. 
+            % Reads and return the status of a pin. Prior to 
+            % calling this function pin must be set as input.
             % Example:
             % val=a.digitalRead(4); Reads pin 4 on the Arduino Due
             
@@ -250,7 +251,7 @@ classdef arduino_com < handle
             if( pin >= 0 && pin <= 53)
                 %valid
             else
-                error('Not a vaild pin, valid pins are 0 to 53.')
+                error('Not a valid pin, valid pins are 0 to 53.')
             end
             
             fwrite(a.aser,[88 pin],'uchar');
