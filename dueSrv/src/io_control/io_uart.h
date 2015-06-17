@@ -9,7 +9,7 @@
 #ifndef IO_UART_H_
 #define IO_UART_H_
 
-#include <Util/asf.h>
+#include <asf.h>
 
 typedef uint32_t reg_address_t;
 

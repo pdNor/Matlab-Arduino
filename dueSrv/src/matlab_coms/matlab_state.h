@@ -5,11 +5,30 @@
  *  Author: Daniel
  */ 
 
-
+#include "asf.h"
 #ifndef MATLAB_STATE_H_
 #define MATLAB_STATE_H_
 
-void start_coms();
+#define ACK				6
+#define ENQUIRY			5
+#define PIN_MODE		86
+#define DIGITAL_WRITE   87
+#define DIGITAL_READ	88
+#define ANALOG_WRITE	89
+#define ANALOG_READ		90
+
+typedef enum{
+	STANDBY,
+	HANDSHAKE,
+	P_MODE,
+	D_WRITE,
+	D_READ,
+	A_WRITE,
+	A_READ
+} state;
+
+
+void start_coms(void);
 
 
 
