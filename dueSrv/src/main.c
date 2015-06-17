@@ -10,6 +10,7 @@
 #include "io_control/io_uart.h"
 
 #define UART_BAUDRATE	115200
+
 int main (void)
 {
 	sysclk_init();

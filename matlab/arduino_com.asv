@@ -184,13 +184,7 @@ classdef arduino_com < handle
                 error('Pin must be defined as INPUT or OUTPUT.');
             end
             
-            if(lower(str(1)) == 'o')
-                dir = 1;
-            else
-                dir = 0;
-            end
             
-            fwrite(a.aser,[86 pin dir],'uchar');
             
         end
         

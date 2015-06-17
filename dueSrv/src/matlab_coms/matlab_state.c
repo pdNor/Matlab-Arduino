@@ -13,6 +13,11 @@
 
 void start_coms(){
 	
+	uint8_t pin;
+	uint8_t val;
+	pin = 0;
+	val = 0;
+	
 	state next_state = STANDBY;
 	state current_state = STANDBY;
 	/*Run state machine*/
@@ -49,12 +54,20 @@ void start_coms(){
 			break;
 			
 			case P_MODE: 
-			//code for activating pin
+			pin = read_when_ready();
+			val = read_when_ready();
+			io_pin_dir(pin,val);
+			pin = 0;
+			val = 0;
 			next_state = STANDBY;
 			break;
 			
 			case D_WRITE:
-			//Code for digital write
+			pin = read_when_ready();
+			val = read_when_ready();
+			io_pin_level(pin,val);
+			pin = 0;
+			val = 0;
 			next_state = STANDBY;
 			break;
 			

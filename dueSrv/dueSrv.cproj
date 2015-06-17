@@ -466,6 +466,12 @@
     <Compile Include="src\ASF\sam\drivers\adc\adc.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\common\pin_mapper.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\common\pin_mapper.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\io_control\io_uart.c">
       <SubType>compile</SubType>
     </Compile>
