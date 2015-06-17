@@ -56,7 +56,7 @@ void start_coms(){
 			case P_MODE: 
 			pin = read_when_ready();
 			val = read_when_ready();
-			io_pin_dir(pin,val);
+			io_pin_dir(pin,(val-10));
 			pin = 0;
 			val = 0;
 			next_state = STANDBY;
@@ -65,7 +65,7 @@ void start_coms(){
 			case D_WRITE:
 			pin = read_when_ready();
 			val = read_when_ready();
-			io_pin_level(pin,val);
+			io_pin_level(pin,(val-10));
 			pin = 0;
 			val = 0;
 			next_state = STANDBY;

@@ -171,7 +171,11 @@ classdef arduino_com < handle
         %%PLACE FUNCTIONS HERE!!!
         
         function pinMode(a,pin,str)
-            %Set pin as output or input on
+            %Set pin as output or input on when calling this function pin
+            %number and direction is needed as arguments.
+            %Example: 
+            %a.pinMode(11,'OUTPUT'); Sets pin 11 on Arduino Due as output
+            %a.pinMode(25,'INPUT'); Sets pin 25 on Arduino Due as input
             
             %check arguments
             if(nargin<3)
@@ -190,10 +194,33 @@ classdef arduino_com < handle
                 dir = 0;
             end
             
-            fwrite(a.aser,[86 pin dir],'uchar');
+            fwrite(a.aser,[86 pin dir+10],'uchar');
             
         end
         
+        function digitalWrite(a,pin,level)
+            %Set pin level, make sure pin in set as output before calling 
+            %this function
+            %Example: 
+            %a.digitalWrite(11,1) Set logic level on pin 11 as high
+            %a.digitalWrite(11,0) Set logic level on pin 11 as low
+            
+            %check arguments
+            if(nargin~=3)
+                error('Wrong number of arguments, this function should have two arguments pin and level.');
+            end
+            
+            %validate arguments
+            if(level == 1 || level == 0)
+                %valid
+            else
+                error('Invalid level argument, level should be 1 or 0.');
+            end
+            
+            fwrite(a.aser,[87 pin level+10],'uchar');
+            
+            
+        end
         
     end % methods
     
