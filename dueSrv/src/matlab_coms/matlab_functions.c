@@ -9,14 +9,19 @@
 #include "matlab_coms/matlab_functions.h"
 #include "common/pin_mapper.h"
 
-void io_pin_dir(uint8_t pin,uint8_t dir){
+void io_pin_dir(uint8_t pin,int8_t dir){
 	uint8_t mapp_pin = pin_mapper(pin);
 	ioport_set_pin_dir(mapp_pin,dir);
 }
 
-void io_pin_level(uint8_t pin,uint8_t level){
+void io_pin_level(int8_t pin,int8_t level){
 	uint8_t mapp_pin = pin_mapper(pin);
 	ioport_set_pin_level(mapp_pin,level);
+}
+
+int8_t io_pin_status(int8_t pin){
+	uint8_t mapp_pin = pin_mapper(pin);
+	return ioport_get_pin_level(mapp_pin);
 }
 
 void send_char_term(uint8_t chr){

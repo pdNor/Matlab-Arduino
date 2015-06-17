@@ -8,6 +8,7 @@
 #include "io_control/adc.h"
 #include "matlab_coms/matlab_state.h"
 #include "io_control/io_uart.h"
+#include "common/pin_mapper.h"
 
 #define UART_BAUDRATE	115200
 
@@ -18,5 +19,6 @@ int main (void)
 	uart_config((uint32_t)UART_BAUDRATE);
 	init_adc();
 	start_coms();
+	
 	
 }

@@ -56,7 +56,7 @@ void start_coms(){
 			case P_MODE: 
 			pin = read_when_ready();
 			val = read_when_ready();
-			io_pin_dir(pin,(val-10));	//calculate pin
+			io_pin_dir(pin,(val-10));	//calculate value
 			pin = 0;
 			val = 0;
 			next_state = STANDBY;
@@ -65,14 +65,18 @@ void start_coms(){
 			case D_WRITE:
 			pin = read_when_ready();
 			val = read_when_ready();
-			io_pin_level(pin,(val-10));	//calculate pin
+			io_pin_level(pin,(val-10));	//calculate value
 			pin = 0;
 			val = 0;
 			next_state = STANDBY;
 			break;
 			
 			case D_READ:
-			//code fir digtial read
+			pin = read_when_ready();
+			val = io_pin_status(pin);
+			send_number(val);
+			pin = 0;
+			val = 0;
 			next_state = STANDBY;
 			break;
 			

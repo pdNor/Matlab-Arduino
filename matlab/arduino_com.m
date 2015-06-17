@@ -236,6 +236,28 @@ classdef arduino_com < handle
             
         end
         
+        function [val]=digitalRead(a,pin)
+            % Reads and return the status of a pin. 
+            % Example:
+            % val=a.digitalRead(4); Reads pin 4 on the Arduino Due
+            
+             %check arguments
+            if(nargin~=2)
+                error('Wrong number of arguments, this function should have two arguments pin and level.');
+            end
+            
+             %check pin
+            if( pin >= 0 && pin <= 53)
+                %valid
+            else
+                error('Not a vaild pin, valid pins are 0 to 53.')
+            end
+            
+            fwrite(a.aser,[88 pin],'uchar');
+            
+            val = fscanf(a.aser,'%d');
+        end
+        
     end % methods
     
     methods (Static) % static methods
