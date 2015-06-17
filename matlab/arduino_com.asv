@@ -2,7 +2,7 @@
 % Modified by: Daniel Nordahl
 %
 % This class defines a "communication object", to be used for communication
-% with a Arduino Due, which will send data about a PID regulation process.
+% with a Arduino Due. 
 %
 % This implementation is based upon code from:
 % "Analog and Digital Input and Output Server for MATLAB",
@@ -182,6 +182,10 @@ classdef arduino_com < handle
                 error('Wrong number of arguments, this function should have two arguments pin and direction.');
             end
             
+            %check pin
+            if( pin >= 0  pin > 54)
+                error('Invalid pin')
+            
             if(lower(str(1)) == 'o' || lower(str(1)) == 'i' )
                 %valid
             else
@@ -203,11 +207,22 @@ classdef arduino_com < handle
             %this function
             %Example: 
             %a.digitalWrite(11,1) Set logic level on pin 11 as high
+            %a.digitalWrite(11,0) Set logic level on pin 11 as low
             
             %check arguments
             if(nargin~=3)
                 error('Wrong number of arguments, this function should have two arguments pin and level.');
             end
+            
+            %validate arguments
+            if(level == 1 || level == 0)
+                %valid
+            else
+                error('Invalid level argument, level should be 1 or 0.');
+            end
+            
+            fwrite(a.aser,[87 pin level+10],'uchar');
+            
             
         end
         

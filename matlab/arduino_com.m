@@ -2,7 +2,7 @@
 % Modified by: Daniel Nordahl
 %
 % This class defines a "communication object", to be used for communication
-% with a Arduino Due, which will send data about a PID regulation process.
+% with a Arduino Due. 
 %
 % This implementation is based upon code from:
 % "Analog and Digital Input and Output Server for MATLAB",
@@ -182,6 +182,13 @@ classdef arduino_com < handle
                 error('Wrong number of arguments, this function should have two arguments pin and direction.');
             end
             
+            %check pin
+            if( pin >= 0 && pin <= 53)
+                %valid
+            else
+                error('Not a vaild pin, valid pins are 0 to 53.')
+            end
+            
             if(lower(str(1)) == 'o' || lower(str(1)) == 'i' )
                 %valid
             else
@@ -208,6 +215,13 @@ classdef arduino_com < handle
             %check arguments
             if(nargin~=3)
                 error('Wrong number of arguments, this function should have two arguments pin and level.');
+            end
+            
+            %check pin
+            if( pin >= 0 && pin <= 53)
+                %valid
+            else
+                error('Not a vaild pin, valid pins are 0 to 53.')
             end
             
             %validate arguments
