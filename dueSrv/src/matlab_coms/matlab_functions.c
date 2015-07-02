@@ -8,6 +8,7 @@
 #include "io_control/io_uart.h"
 #include "matlab_coms/matlab_functions.h"
 #include "common/pin_mapper.h"
+#include "io_control/analog_output.h"
 
 void io_pin_dir(uint8_t pin,int8_t dir){
 	/* Map to arduino due pin */
@@ -25,6 +26,10 @@ int8_t io_pin_status(int8_t pin){
 	/* Map to arduino due pin */
 	uint8_t mapp_pin = pin_mapper(pin);
 	return ioport_get_pin_level(mapp_pin);
+}
+
+void io_pwm_duty(uint8_t duty){
+	pwm_set_duty(duty);
 }
 
 void send_char_term(uint8_t chr){

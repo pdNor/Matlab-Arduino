@@ -1,8 +1,9 @@
 /*
  * Functions for creating a motor control
  * signal. This is done by using the pwm support in 
- * the SAM3x processor. DAC1 on the 
- *
+ * the SAM3x processor. DAC1 pin on due board is the pwm 
+ * output. Signal frequency is set to 1kHz. Resolution is 
+ * set to 255. 
  * Created: 2015-07-02 09:04:33
  *  Author: Daniel Nordahl
  */ 

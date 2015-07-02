@@ -1,7 +1,15 @@
 /*
- * matlab_state.c
+ *	This state machine handles communication with Matlab 
+ *	each function in Matlab has a corresponding state. 
+ *	The current functions are:
+ *		pinMode
+ *		digitalWrite
+ *		digitalRead
+ *		analogWrite
+ *		analogRead
+ *	More can be added if needed.
  *
- * Created: 2015-06-15 20:31:34
+ *  Created: 2015-06-15 20:31:34
  *  Author: Daniel
  */ 
 
@@ -81,7 +89,9 @@ void start_coms(){
 			break;
 			
 			case A_WRITE:
-			//code for analogwrite
+			val = read_when_ready();
+			io_pwm_duty(val);
+			val = 0;
 			next_state = STANDBY;
 			break;
 			
