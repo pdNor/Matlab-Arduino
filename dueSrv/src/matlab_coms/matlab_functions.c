@@ -1,8 +1,8 @@
 /*
- * matlab_functions.c
- *
+ * Functions used by state machine in communication
+ * with matlab.
  * Created: 2015-06-15 20:32:24
- *  Author: Daniel
+ *  Author: Daniel Nordahl
  */ 
 
 #include "io_control/io_uart.h"
@@ -10,16 +10,19 @@
 #include "common/pin_mapper.h"
 
 void io_pin_dir(uint8_t pin,int8_t dir){
+	/* Map to arduino due pin */
 	uint8_t mapp_pin = pin_mapper(pin);
 	ioport_set_pin_dir(mapp_pin,dir);
 }
 
 void io_pin_level(int8_t pin,int8_t level){
+	/* Map to arduino due pin */
 	uint8_t mapp_pin = pin_mapper(pin);
 	ioport_set_pin_level(mapp_pin,level);
 }
 
 int8_t io_pin_status(int8_t pin){
+	/* Map to arduino due pin */
 	uint8_t mapp_pin = pin_mapper(pin);
 	return ioport_get_pin_level(mapp_pin);
 }

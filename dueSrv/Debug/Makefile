@@ -91,6 +91,7 @@ SUBDIRS :=  \
 C_SRCS +=  \
 ../src/ASF/sam/drivers/adc/adc.c \
 ../src/common/pin_mapper.c \
+../src/io_control/analog_output.c \
 ../src/io_control/io_uart.c \
 ../src/matlab_coms/matlab_functions.c \
 ../src/matlab_coms/matlab_state.c \
@@ -122,6 +123,7 @@ ASM_SRCS +=
 OBJS +=  \
 src/ASF/sam/drivers/adc/adc.o \
 src/common/pin_mapper.o \
+src/io_control/analog_output.o \
 src/io_control/io_uart.o \
 src/matlab_coms/matlab_functions.o \
 src/matlab_coms/matlab_state.o \
@@ -146,6 +148,7 @@ src/main.o
 OBJS_AS_ARGS +=  \
 src/ASF/sam/drivers/adc/adc.o \
 src/common/pin_mapper.o \
+src/io_control/analog_output.o \
 src/io_control/io_uart.o \
 src/matlab_coms/matlab_functions.o \
 src/matlab_coms/matlab_state.o \
@@ -170,6 +173,7 @@ src/main.o
 C_DEPS +=  \
 src/ASF/sam/drivers/adc/adc.d \
 src/common/pin_mapper.d \
+src/io_control/analog_output.d \
 src/io_control/io_uart.d \
 src/matlab_coms/matlab_functions.d \
 src/matlab_coms/matlab_state.d \
@@ -194,6 +198,7 @@ src/main.d
 C_DEPS_AS_ARGS +=  \
 src/ASF/sam/drivers/adc/adc.d \
 src/common/pin_mapper.d \
+src/io_control/analog_output.d \
 src/io_control/io_uart.d \
 src/matlab_coms/matlab_functions.d \
 src/matlab_coms/matlab_state.d \
@@ -230,6 +235,8 @@ LINKER_SCRIPT_DEP+=  \
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 
