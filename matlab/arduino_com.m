@@ -263,6 +263,7 @@ classdef arduino_com < handle
             % Set the pwm duty cycle and thus the speed of the motor
             % pin argument is currenlty not used because the pwm output
             % is locked to the DAC1 pin.
+            
             if(nargin~=2)
                 error('Wrong number of arguments, this function should have one argument pwm duty cycle');
             end
@@ -274,6 +275,36 @@ classdef arduino_com < handle
             
             fwrite(a.aser,[89 val],'uchar');
             
+        end
+        
+        function [value] = analogRead(a,pin)
+            % Reads value on analog pin, pins avalible are A0,A1,A2
+            % Example:
+            % analog = a.analogRead('A=0');
+            
+            %check arguments
+            if(nargin~=2)
+                error('Wrong number of arguments, this function should have one argument analog pin');
+            end
+            
+            pin = lower(pin);
+          
+            if strcmp(pin,'a0')
+                channel = 7;
+            elseif strcmp(pin,'a1')
+                channel = 6;
+            elseif strcmp(pin,'a2')
+                channel = 5;
+            else
+                error('wrong pin avalible pins are A0,A1 or A2');
+            end
+                    
+                    
+            
+            fwrite(a.aser,[90 channel],'uchar');
+            
+            value = fscanf(a.aser,'%d');
+           
         end
         
     end % methods

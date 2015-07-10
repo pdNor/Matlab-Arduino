@@ -259,22 +259,65 @@ classdef arduino_com < handle
             val = fscanf(a.aser,'%d');
         end
         
-        function analogWrite(a,pin,val)
+        function analogWrite(a,val)
             % Set the pwm duty cycle and thus the speed of the motor
             % pin argument is currenlty not used because the pwm output
-            % is locked to the DAC1 pin. The reson that its thi
-            %check arguments
-            if(nargin~=3)
-                error('Wrong number of arguments, this function should have two arguments pin and level.');
+            % is locked to the DAC1 pin.
+            
+            if(nargin~=2)
+                error('Wrong number of arguments, this function should have one argument pwm duty cycle');
             end
             
             %check pwm duty cycle
             if( val < 0 || val > 255)
-                error('Invalid duty cycle pwm resolution is 8-bits');
+                error('Invalid duty cycle. Pwm resolution is 8-bits. Set duty between 0-255');
             end
             
             fwrite(a.aser,[89 val],'uchar');
             
+        end
+        
+        function [value] = analogRead(a,pin)
+            % Reads value on analog pin, pins avalible are A0,A1,A2
+            % Example:
+            % analog = a.analogRead('A=0');
+            
+            %check arguments
+            if(nargin~=2)
+                error('Wrong number of arguments, this function should have one argument analog pin');
+            end
+            
+            %check if pin is valid
+            if ~(strcmpi(pin,'a0') || strcmpi(pin,'a1') || strcmpi(pin,'a2'))
+                error('wrong pin avalible pins are A0,A1 or A2');
+            end
+            
+            if strcmp(pin,'a0')
+                channel = 7;
+            end
+            
+            if strcmp(pin,'a1')
+                channel = 6;
+            end
+            
+            if strcmp(pin,'a2')
+                channel = 5
+            end
+            
+            if strcmp(pin,'a0')
+                channel = 7;
+            elseif strcmp(pin,'a1')
+                    channel = 6;
+            elseif strcmp(pin,'a2')
+                        channel = 5;
+            end
+                    
+                    
+            
+            fwrite(a.aser,[90 channel],'uchar');
+            
+            value = fscanf(a.aser,'%d');
+           
         end
         
     end % methods

@@ -23,8 +23,10 @@ void start_coms(){
 	
 	uint8_t pin;
 	uint8_t val;
+	uint16_t adc_val;
 	pin = 0;
 	val = 0;
+	adc_val = 0;
 	
 	state next_state = STANDBY;
 	state current_state = STANDBY;
@@ -96,7 +98,11 @@ void start_coms(){
 			break;
 			
 			case A_READ:
-			//code for analogread
+			pin = read_when_ready();
+			adc_val = io_adc_value(pin);
+			send_number(adc_val);
+			pin = 0;
+			adc_val = 0;
 			next_state = STANDBY;
 			break;
 			

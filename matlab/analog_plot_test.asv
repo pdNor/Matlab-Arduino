@@ -1,0 +1,22 @@
+function analog_plot_test(a,N,dT)
+    t = zeros(1,N);
+    h = zeros(1,N);
+    for i=1:N 
+        start = cputime;
+        if ok < 0
+            i;
+            disp('Varning samplingstiden är för kort!');
+        end
+        [h(i)] = a.analogRead('A1');
+        t(i) = i;
+    
+        if e(i) > 1000;
+            e(i) = e(i)-1000;
+            e(i) = -e(i);
+        end
+        plot(t,h,t,m,'g',t,e,'r',t,sp,'c');
+        elapsed = cputime-start;
+        ok = dT-elapsed;
+        pause(ok);
+    end
+endend

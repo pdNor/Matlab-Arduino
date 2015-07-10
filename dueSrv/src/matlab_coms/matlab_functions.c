@@ -9,6 +9,7 @@
 #include "matlab_coms/matlab_functions.h"
 #include "common/pin_mapper.h"
 #include "io_control/analog_output.h"
+#include "io_control/adc.h"
 
 void io_pin_dir(uint8_t pin,int8_t dir){
 	/* Map to arduino due pin */
@@ -30,6 +31,10 @@ int8_t io_pin_status(int8_t pin){
 
 void io_pwm_duty(uint8_t duty){
 	pwm_set_duty(duty);
+}
+
+uint16_t io_adc_value(uint32_t channel){
+	return read_adc_value(channel);
 }
 
 void send_char_term(uint8_t chr){

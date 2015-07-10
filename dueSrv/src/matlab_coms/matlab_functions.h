@@ -17,7 +17,8 @@ extern void send_char_no_term(uint8_t);
 extern uint8_t read_char(void);
 extern uint8_t read_when_ready(void);
 extern void send_number(uint16_t);
-void io_pwm_duty(uint8_t duty);
+void io_pwm_duty(uint8_t);
+uint16_t io_adc_value(uint32_t);
 
 
 

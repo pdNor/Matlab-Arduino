@@ -13,5 +13,7 @@
 
 void init_adc(void);
 
+uint16_t read_adc_value(uint32_t);
+
 
 #endif /* ADC_H_ */
