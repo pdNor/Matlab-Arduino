@@ -2,7 +2,7 @@
  * matlab_functions.h
  *
  * Created: 2015-06-15 20:32:38
- *  Author: Daniel
+ *  Author: Daniel Nordahl
  */ 
 
 #include <asf.h>

@@ -1,6 +1,9 @@
 /**
- *	Communication between matlab and arduino due 
- 
+ *	Communication between matlab and arduino due, ued in the curse
+ *  inbyggda system och signaler at Malmö University. Communications is controlled
+ *	with a state machine, that handles incoming requests from matlab.  
+ *	Communication can be run with either a wired interface or via bluethooth.
+ *	
  *	Author: Daniel Nordahl
  */
 
@@ -11,7 +14,7 @@
 #include "io_control/io_uart.h"
 #include "common/pin_mapper.h"
 
-#define UART_BAUDRATE	115200
+#define UART_BAUDRATE	115200		//Baud must be the same in Matlab
 
 int main (void)
 {
@@ -20,7 +23,7 @@ int main (void)
 	uart_config((uint32_t)UART_BAUDRATE);
 	init_adc();
 	pwm_setup();
-	start_coms();
+	start_coms();					//Run state machine
 	
 	
 }

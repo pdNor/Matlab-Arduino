@@ -1,8 +1,10 @@
 /*
- * adc.c
- *
+ * Enables analog sensor input on adc channel 7,6,5, that is A0,A1 and A2 on 
+ * the arduino due board. Adc resolution is set to low res, witch is needed if the
+ * code should be compatible with the matlabcode.
+ * 
  * Created: 2015-06-15 20:04:35
- *  Author: Daniel
+ *  Author: Daniel Nordahl
  */ 
 #include <adc.h>
 #include <asf.h>

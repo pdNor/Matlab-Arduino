@@ -2,7 +2,7 @@
  * adc.h
  *
  * Created: 2015-06-15 20:04:55
- *  Author: Daniel
+ *  Author: Daniel	Nordahl
  */ 
 
 
