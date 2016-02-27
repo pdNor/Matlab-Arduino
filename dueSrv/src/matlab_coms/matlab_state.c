@@ -97,7 +97,7 @@ void start_coms(){
 			next_state = STANDBY;
 			break;
 
-			case A_WRITE_DAC
+			case A_WRITE_DAC:
 			val = read_when_ready();
 			//set val
 			val = 0;

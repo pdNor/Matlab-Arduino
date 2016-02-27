@@ -21,3 +21,12 @@ uint8_t pin_table[66] = {PIO_PA8_IDX,PIO_PA9_IDX,PIO_PB25_IDX,PIO_PC28_IDX,PIO_P
 uint8_t pin_mapper(uint8_t pin){
 	return pin_table[pin];
 }
+
+/*
+* Mapping values from one range to another, be warned this function will 
+* probably run dead slow on the arduino due. Its not intended to be used
+* where speed is essential.  
+*/
+uint32_t map_value(uint32_t x, uint32_t in_min, uint32_t in_max, uint32_t out_min, uint32_t out_max){
+	return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}

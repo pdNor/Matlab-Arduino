@@ -10,6 +10,7 @@
 #include "common/pin_mapper.h"
 #include "io_control/analog_output.h"
 #include "io_control/adc.h"
+#include "io_control/dac.h"
 
 void io_pin_dir(uint8_t pin,int8_t dir){
 	/* Map to arduino due pin */
@@ -79,4 +80,8 @@ void send_number(uint16_t nbr){
 	}
 	
 	send_char_term(13); //Carriage Return and terminator;
+}
+
+void io_dac_value(uint8_t value){
+	dac_write(value);
 }

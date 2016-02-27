@@ -130,7 +130,8 @@ src/matlab_coms/matlab_functions.d src/matlab_coms/matlab_functions.o: \
  ../src/ASF/sam/drivers/pmc/sleep.h ../src/ASF/sam/drivers/pwm/pwm.h \
  ../src/ASF/sam/drivers/pio/pio_handler.h \
  ../src/matlab_coms/matlab_functions.h ../src/common/pin_mapper.h \
- ../src/io_control/analog_output.h ../src/io_control/adc.h
+ ../src/io_control/analog_output.h ../src/io_control/adc.h \
+ ../src/io_control/dac.h
 
 ../src/io_control/io_uart.h:
 
@@ -409,3 +410,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../src/io_control/analog_output.h:
 
 ../src/io_control/adc.h:
+
+../src/io_control/dac.h:
