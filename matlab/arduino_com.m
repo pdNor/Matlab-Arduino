@@ -259,12 +259,12 @@ classdef arduino_com < handle
             val = fscanf(a.aser,'%d');
         end
         
-        function analogWrite(a,val)
+        function analogWrite(a,val,pin)
             % Set the pwm duty cycle and thus the speed of the motor
             % pin argument is currenlty not used because the pwm output
             % is locked to the DAC1 pin.
             
-            if(nargin~=2)
+            if(nargin~=3)
                 error('Wrong number of arguments, this function should have one argument pwm duty cycle');
             end
             
@@ -272,9 +272,11 @@ classdef arduino_com < handle
             if( val < 0 || val > 255)
                 error('Invalid duty cycle. Pwm resolution is 8-bits. Set duty between 0-255');
             end
-            
-            fwrite(a.aser,[89 val],'uchar');
-            
+            if strcmp(pin,'DAC1');
+                fwrite(a.aser,[89 val],'uchar');
+            elseif strcmp(pin,'DAC0');
+                fwrite(a.aser,[91 val],'uchar');
+            end
         end
         
         function [value] = analogRead(a,pin)

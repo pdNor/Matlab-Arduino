@@ -55,6 +55,9 @@ void start_coms(){
 				case ANALOG_READ:
 				next_state = A_READ;
 				break;
+				case ANALOG_WRITE_D:
+				next_state = A_WRITE_DAC;
+				break;
 			}
 			break;
 			
@@ -99,7 +102,7 @@ void start_coms(){
 
 			case A_WRITE_DAC:
 			val = read_when_ready();
-			//set val
+			io_dac_value(val);
 			val = 0;
 			next_state = STANDBY;
 			break;

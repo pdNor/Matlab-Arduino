@@ -20,6 +20,7 @@
  }
 
  void dac_write(uint32_t value){
-	map_value(value,0,255,0,4095);
-	dacc_write_conversion_data(DACC,value);
+	uint32_t dac_val;
+	dac_val = map_value(value,0,255,0,4095);
+	dacc_write_conversion_data(DACC,dac_val);
  }

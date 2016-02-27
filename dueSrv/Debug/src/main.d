@@ -129,7 +129,7 @@ src/main.d src/main.o: ../src/main.c ../src/asf.h \
  ../src/ASF/sam/drivers/pio/pio_handler.h \
  ../src/io_control/analog_output.h ../src/io_control/adc.h \
  ../src/matlab_coms/matlab_state.h ../src/io_control/io_uart.h \
- ../src/common/pin_mapper.h
+ ../src/common/pin_mapper.h ../src/io_control/dac.h
 
 ../src/asf.h:
 
@@ -408,3 +408,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../src/io_control/io_uart.h:
 
 ../src/common/pin_mapper.h:
+
+../src/io_control/dac.h:

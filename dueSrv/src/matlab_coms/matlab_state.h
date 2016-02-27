@@ -16,6 +16,7 @@
 #define DIGITAL_READ	88
 #define ANALOG_WRITE	89
 #define ANALOG_READ		90
+#define ANALOG_WRITE_D  91
 
 typedef enum{
 	STANDBY,
