@@ -24,6 +24,7 @@ typedef enum{
 	D_WRITE,
 	D_READ,
 	A_WRITE,
+	A_WRITE_DAC,
 	A_READ
 } state;
 

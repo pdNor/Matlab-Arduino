@@ -478,6 +478,12 @@
     <Compile Include="src\io_control\analog_output.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\io_control\dac.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\io_control\dac.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\io_control\io_uart.c">
       <SubType>compile</SubType>
     </Compile>

@@ -9,7 +9,8 @@
 #ifndef DAC_H_
 #define DAC_H_
 
-
+void dac_setup(void);
+void dac_write(uint32_t);
 
 
 

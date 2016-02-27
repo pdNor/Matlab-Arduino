@@ -96,6 +96,13 @@ void start_coms(){
 			val = 0;
 			next_state = STANDBY;
 			break;
+
+			case A_WRITE_DAC
+			val = read_when_ready();
+			//set val
+			val = 0;
+			next_state = STANDBY;
+			break;
 			
 			case A_READ:
 			pin = read_when_ready();

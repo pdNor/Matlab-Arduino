@@ -8,6 +8,8 @@ src\common\pin_mapper.c
 
 src\io_control\analog_output.c
 
+src\io_control\dac.c
+
 src\io_control\io_uart.c
 
 src\matlab_coms\matlab_functions.c
